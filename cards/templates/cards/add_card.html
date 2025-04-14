@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <div class="card">
+        <div class="card-header">
+            <h2>Добавить новую карточку</h2>
+        </div>
+        <div class="card-body">
+            <form method="post" enctype="multipart/form-data">
+                {% csrf_token %}
+
+                <div class="mb-3">
+                    <label class="form-label">{{ form.lesson.label }}</label>
+                    {{ form.lesson }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">{{ form.word.label }}</label>
+                    {{ form.word }}
+                    <div class="form-text">Минимум 2 символа</div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">{{ form.translation.label }}</label>
+                    {{ form.translation }}
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">{{ form.image.label }}</label>
+                    {{ form.image }}
+                </div>
+
+                <button type="submit" class="btn btn-primary">Сохранить</button>
+            </form>
+        </div>
+    </div>
+</div>
+{% endblock %}

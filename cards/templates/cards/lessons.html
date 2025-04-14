@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Все уроки | LangTrainer{% endblock %}
+
+{% block content %}
+<h1 class="mb-4">Доступные уроки</h1>
+
+<div class="row">
+    {% for lesson in lessons %}
+    <div class="col-md-4 mb-4">
+        <div class="card lesson-card">
+            <div class="card-body">
+                <h5 class="card-title">{{ lesson.title }}</h5>
+                <p class="text-muted">{{ lesson.card_count }} карточек</p>
+                <a href="{% url 'quiz' lesson.id %}" class="btn btn-primary">
+                    Начать тренировку
+                </a>
+            </div>
+        </div>
+    </div>
+    {% endfor %}
+</div>
+
+<a href="{% url 'add_lesson' %}" class="btn btn-success mt-3">
+    + Добавить новый урок
+</a>
+{% endblock %}

@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2 class="mb-4">Викторина: {{ lesson.title }}</h2>
+
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+
+        {% for card in cards %}
+        <div class="card mb-3">
+            <div class="row g-0">
+                <!-- Блок с изображением -->
+                {% if card.image %}
+                <div class="col-md-4">
+                    <img src="{{ card.image.url }}"
+                         class="img-fluid rounded-start"
+                         alt="{{ card.word }}"
+                         style="max-height: 200px; object-fit: contain;">
+                </div>
+                {% endif %}
+
+                <!-- Блок с вопросом и полем ввода -->
+                <div class="col-md-{% if card.image %}8{% else %}12{% endif %}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ card.word }}</h5>
+                        <input type="text"
+                               name="card_{{ card.id }}"
+                               class="form-control mt-2"
+                               placeholder="Введите перевод">
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endfor %}
+
+        <button type="submit" class="btn btn-primary">Проверить ответы</button>
+    </form>
+</div>
+{% endblock %}
