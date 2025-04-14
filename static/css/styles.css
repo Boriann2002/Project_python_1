@@ -1,0 +1,80 @@
+/* Основные стили */
+:root {
+  --primary-color: #4e73df;
+  --secondary-color: #f8f9fc;
+  --accent-color: #2e59d9;
+  --text-color: #5a5c69;
+}
+
+body {
+  font-family: 'Nunito', -apple-system, BlinkMacSystemFont, sans-serif;
+  background-color: var(--secondary-color);
+  color: var(--text-color);
+  line-height: 1.6;
+}
+
+/* Навигация */
+.navbar {
+  background-color: white;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.15);
+}
+.navbar-brand {
+  font-weight: 800;
+  color: var(--primary-color) !important;
+}
+.nav-link {
+  font-weight: 600;
+}
+
+/* Карточки слов */
+.card {
+  border: none;
+  border-radius: 0.35rem;
+  box-shadow: 0 0.15rem 1.75rem 0 rgba(58, 59, 69, 0.1);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 0.5rem 1.5rem 0 rgba(58, 59, 69, 0.2);
+}
+.card-img-top {
+  border-top-left-radius: 0.35rem;
+  border-top-right-radius: 0.35rem;
+  height: 180px;
+  object-fit: cover;
+}
+
+/* Формы */
+.form-control {
+  border-radius: 0.35rem;
+  padding: 0.75rem 1rem;
+}
+.btn-primary {
+  background-color: var(--primary-color);
+  border-color: var(--primary-color);
+}
+.btn-primary:hover {
+  background-color: var(--accent-color);
+  border-color: var(--accent-color);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .card-img-top {
+    height: 120px;
+  }
+}
+
+.card-img-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #f8f9fa;
+    min-height: 200px;
+}
+
+.card-img-container img {
+    max-width: 100%;
+    max-height: 200px;
+    object-fit: contain;
+}
